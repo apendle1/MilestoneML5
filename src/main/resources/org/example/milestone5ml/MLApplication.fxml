@@ -21,7 +21,7 @@
         <Button text="Open File"/>
         <Button text="Save File"/>
     </HBox>
-    <TabPane>
+    <TabPane fx:id="ctabframe">
         <Tab text="ReadMe">
         </Tab>
         <Tab text="Settings">
