@@ -7,18 +7,33 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.io.File;
+
 public class MachineFileGui {
 
     //will import machine when functionality is added
 
     Tab mactab;
+    public MachineTabController MController;
+    public MachineFileGui(String filename) {
+        MController = new MachineTabController();
+        mactab = new Tab();
+        mactab.setText(String.valueOf(filename));
 
-    public MachineFileGui(String filename){
+        createFramework();
+    }
+    public MachineFileGui(File filename) {
+        MController = new MachineTabController();
+        mactab = new Tab(); //tab that holds tabpane frame
+        mactab.setText(String.valueOf(filename));
+        MController.loadFile(filename);
+        createFramework();
+    }
+    public void createFramework(){
         //constructor needs to create everything in the gui from a new file button.
         //currently modeled after the "file1" tab in the fxml file
 
-        mactab = new Tab(); //tab that holds tabpane frame
-        mactab.setText(filename);
+
         //apologies for the confusing language here. Each File opened will hold a tab, and each
         //file tab will hold a tabframe that holds run, command, and textbox machine tabs.
         //mactab is the highest level tab that will be added to the programs permanent
@@ -35,9 +50,11 @@ public class MachineFileGui {
         VBox rthbvcontainer = new VBox();
         rthbvcontainer.setSpacing(20.0);
         TextArea rtinput = new TextArea();
+        MController.setInputArea(rtinput);
         ScrollPane rtoutputpane = new ScrollPane();
         rtoutputpane.setPrefHeight(300);
         Text outputarea = new Text();
+        MController.SetOutputArea(outputarea);
         Button runbutton = new Button();
         runbutton.setText("Run");
         ScrollPane rtcommandpane = new ScrollPane();
@@ -72,6 +89,7 @@ public class MachineFileGui {
         Button ctsubmit = new Button();
         ctsubmit.setText("Submit");
         Label accidxlabel = new Label();
+        MController.setACCIDXLabel(accidxlabel);
         accidxlabel.setText("ACC: 0000    IDX: 0000");
 
         //todo: assemble all above architecture
@@ -100,3 +118,48 @@ public class MachineFileGui {
         return mactab;
     }
 }
+/*
+<Tab text="Run" closable="false">
+                    <HBox spacing="20.0">
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                        </padding>
+                        <VBox fx:id="interior3" spacing = "20.0">
+                            <TextArea fx:id="InputArea"/>
+                            <ScrollPane prefHeight="300">
+                                <Text fx:id="OutputArea"></Text>
+                            </ScrollPane>
+                            <Button text="Run"/>
+                        </VBox>
+                        <ScrollPane prefWidth="400">
+                            <Text>eh</Text>
+                        </ScrollPane>
+                    </HBox>
+                </Tab>
+                <Tab text="Command View" closable="false">
+                    <VBox fx:id="interior1" alignment="TOP_LEFT" spacing="20.0">
+                        <ScrollPane prefWidth="600" prefHeight="415">
+                            <VBox fx:id="MemContainer">
+                            </VBox>
+                        </ScrollPane>
+                        <HBox spacing="10.0">
+                            <Button text="Add Line"/>
+                            <Button text="Delete Line"/>
+                            <Button text="Submit"/>
+                            <Label fx:id="ACCIDXLabel">ACC: 0000    IDX: 0000</Label>
+                        </HBox>
+                    </VBox>
+                </Tab>
+                <Tab text="Textbox View" closable="false">
+                    <HBox  alignment="TOP_CENTER" spacing= "20.0">
+                        <VBox fx:id="interior4" alignment="TOP_LEFT" spacing="20.0">
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                            </padding>
+                            <TextArea text="file in text version. Each line is a new MLcommand. Edits to text edit run code." maxHeight="40"/>
+                            <TextArea fx:id="fileInputArea"/>
+                            <Button text ="submit"/>
+                        </VBox>
+                    </HBox>
+                </Tab>
+ */
