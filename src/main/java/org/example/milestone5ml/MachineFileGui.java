@@ -21,6 +21,8 @@ public class MachineFileGui {
 
     final int MEMORY_LENGTH = 250;
 
+    ArrayList<WordGui> GuiMemory;
+
     //will import machine when functionality is added
 
     Tab mactab;
@@ -30,13 +32,23 @@ public class MachineFileGui {
         mactab = new Tab();
         mactab.setText(String.valueOf(filename));
 
+        GuiMemory = new ArrayList<WordGui>();
+        for(int i = 0; i < MEMORY_LENGTH; i++){
+            GuiMemory.add(new WordGui(i));
+        }
         createFramework();
     }
     public MachineFileGui(File filename) {
         MController = new MachineTabController();
         mactab = new Tab(); //tab that holds tabpane frame
         mactab.setText(String.valueOf(filename));
-        MController.loadFile(filename);
+
+        GuiMemory = new ArrayList<WordGui>();
+        for(int i = 0; i < MEMORY_LENGTH; i++){
+            GuiMemory.add(new WordGui(i));
+        }
+        MController.loadFile(filename, GuiMemory);
+
         createFramework();
     }
     public void createFramework(){
@@ -107,10 +119,6 @@ public class MachineFileGui {
 
         //todo: assemble all above architecture
 
-        ArrayList<WordGui> GuiMemory = new ArrayList<WordGui>();
-        for(int i = 0; i < MEMORY_LENGTH; i++){
-            GuiMemory.add(new WordGui(i));
-        }
         for (int i = 0; i < GuiMemory.size(); i++){
             //memcontainer.getChildren().addAll(GuiMemory.get(i).gethbox());
             ctcommandpane.getItems().add(GuiMemory.get(i).gethbox());
