@@ -11,13 +11,14 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ListView?>
 <VBox alignment="TOP_LEFT" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.example.milestone5ml.AppController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <HBox spacing="20.0">
-        <Button text="New File"/>
+        <Button text="New File" onAction="#onNewFileButtonClick"/>
         <Button text="Open File"/>
         <Button text="Save File"/>
     </HBox>
@@ -47,10 +48,14 @@
                 </Tab>
                 <Tab text="Command View" closable="false">
                     <VBox fx:id="interior1" alignment="TOP_LEFT" spacing="20.0">
-                        <ScrollPane prefWidth="600" prefHeight="415">
-                            <VBox fx:id="MemContainer">
-                            </VBox>
-                        </ScrollPane>
+                        <ListView prefWidth="600">
+                            <Text>bruh</Text>
+                            <Text>bruh</Text>
+                            <Text>bruh</Text>
+                            <Text>bruh</Text>
+                            <Text>bruh</Text>
+
+                        </ListView>
                         <HBox spacing="10.0">
                             <Button text="Add Line"/>
                             <Button text="Delete Line"/>

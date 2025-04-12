@@ -1,13 +1,23 @@
 package org.example.milestone5ml;
 
+import javafx.beans.property.ReadOnlyProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.control.ListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
 
 public class MachineFileGui {
+
+    final int MEMORY_LENGTH = 250;
 
     //will import machine when functionality is added
 
@@ -58,10 +68,11 @@ public class MachineFileGui {
         ctvbcontainer.setPadding(new Insets(20, 20, 20, 20));
         ctvbcontainer.setAlignment(Pos.TOP_LEFT);
         ctvbcontainer.setSpacing(20.0);
-        ScrollPane ctcommandpane = new ScrollPane();
-        ctcommandpane.setPrefWidth(600);
-        ctcommandpane.setPrefHeight(415);
-        VBox memcontainer = new VBox();
+        //ScrollPane ctcommandpane = new ScrollPane();
+        //ctcommandpane.setPrefWidth(600);
+        //ctcommandpane.setPrefHeight(415);
+        //VBox memcontainer = new VBox();
+        ListView<HBox> ctcommandpane = new ListView<HBox>();
         HBox cthbtoolbar = new HBox();
         cthbtoolbar.setSpacing(10.0);
         cthbtoolbar.setAlignment(Pos.BASELINE_LEFT);
@@ -75,7 +86,17 @@ public class MachineFileGui {
         accidxlabel.setText("ACC: 0000    IDX: 0000");
 
         //todo: assemble all above architecture
-        ctcommandpane.setContent(memcontainer);
+
+        ArrayList<WordGui> GuiMemory = new ArrayList<WordGui>();
+        for(int i = 0; i < MEMORY_LENGTH; i++){
+            GuiMemory.add(new WordGui(i));
+        }
+        for (int i = 0; i < GuiMemory.size(); i++){
+            //memcontainer.getChildren().addAll(GuiMemory.get(i).gethbox());
+            ctcommandpane.getItems().add(GuiMemory.get(i).gethbox());
+        }
+
+        //ctcommandpane.setContent(memcontainer);
         cthbtoolbar.getChildren().addAll(ctaddline, ctdelline, ctsubmit, accidxlabel);
         ctvbcontainer.getChildren().addAll(ctcommandpane, cthbtoolbar);
         cmtab.setContent(ctvbcontainer);
@@ -99,4 +120,6 @@ public class MachineFileGui {
     Tab getTab(){
         return mactab;
     }
+
+
 }
