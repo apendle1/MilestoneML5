@@ -49,18 +49,18 @@ public class MachineTabController {
         this.InputArea = InputArea;
     }
 
-    protected void loadFile(File selectedFile) {
+    protected void loadFile(File selectedFile, ArrayList<WordGui> a) {
         try {
-            ArrayList<WordGui> a = MLApplication.GuiMemory;
             int index = 0;
             Scanner sc = new Scanner(selectedFile);
             while (sc.hasNextLine() && index < 100) {
+                System.out.println("got here");
                 String line = sc.nextLine();
                 a.get(index).setValue(line);
                 index++;
             }
         } catch (Exception e) {
-            System.out.println("error loading file");
+            System.out.println(e.getMessage());
         }
 
     }
