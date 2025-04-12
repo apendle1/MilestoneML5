@@ -19,7 +19,7 @@
     </padding>
     <HBox spacing="20.0">
         <Button text="New File" onAction="#onNewFileButtonClick"/>
-        <Button text="Open File"/>
+        <Button text="Open File" onAction="#onOpenFileButtonClick"/>
         <Button text="Save File"/>
     </HBox>
     <TabPane fx:id="ctabframe">

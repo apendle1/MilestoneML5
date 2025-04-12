@@ -66,6 +66,8 @@ public class MachineFileGui {
         Text outputarea = new Text();
         MController.SetOutputArea(outputarea);
         Button runbutton = new Button();
+        MController.setRunButton(runbutton);
+        runbutton.setOnAction(event -> MController.onRunButtonClick());
         runbutton.setText("Run");
         ScrollPane rtcommandpane = new ScrollPane();
         rtcommandpane.setPrefWidth(400);

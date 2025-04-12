@@ -27,15 +27,7 @@ public class MLApplication extends Application {
 
         MachineFileGui m = new MachineFileGui("new file");
         c.getTabs().add(m.getTab());
-        //VBox v = (VBox)scene.lookup("#MemContainer");
-        /*GuiMemory = new ArrayList<WordGui>();
-        for(int i = 0; i < 100; i++){
-            GuiMemory.add(new WordGui(i));
-        }
 
-        for (int i = 0; i < GuiMemory.size(); i++){
-            v.getChildren().addAll(GuiMemory.get(i).gethbox());
-        }*/
     }
 
     public static void main(String[] args) {

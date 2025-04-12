@@ -29,18 +29,6 @@ public class MachineTabController {
         }
     }
 
-    public void MemMachineToGui(){
-        int[] wordlist = m.memory.getWordlist();
-        ArrayList<WordGui> a = MLApplication.GuiMemory;
-        for(int i = 0; i < a.size(); i++){
-            if(m.memory.getWordSingle(i) >= 0){
-                String formattedString = String.format("%0" + 4 + "d", m.memory.getWordSingle(i));
-                a.get(i).setValue("+" + formattedString);
-            } else {
-                a.get(i).setValue(String.format("%0" + 5 + "d", m.memory.getWordSingle(i)));
-            }
-        }
-    }
     /*public void addMLPlainText(){
         ArrayList<WordGui> a = MLApplication.GuiMemory;
         for(int i = 0; i < a.size(); i++){
@@ -76,6 +64,12 @@ public class MachineTabController {
         }
 
     }
+    Button runButton;
+
+    public void setRunButton(Button runButton) {
+        this.runButton = runButton;
+    }
+
     protected void onRunButtonClick(){
         ArrayList<WordGui> a = MLApplication.GuiMemory;
         for(WordGui i : a){
