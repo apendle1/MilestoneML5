@@ -1,5 +1,8 @@
 package org.example.milestone5ml;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TabPane;
+
 public class AppController {
     @FXML
     private TabPane ctabframe;

@@ -48,10 +48,14 @@
                 </Tab>
                 <Tab text="Command View" closable="false">
                     <VBox fx:id="interior1" alignment="TOP_LEFT" spacing="20.0">
-                        <ScrollPane prefWidth="600" prefHeight="415">
-                            <VBox fx:id="MemContainer">
-                            </VBox>
-                        </ScrollPane>
+                        <ListView prefWidth="600">
+                            <Text>bruh</Text>
+                            <Text>bruh</Text>
+                            <Text>bruh</Text>
+                            <Text>bruh</Text>
+                            <Text>bruh</Text>
+
+                        </ListView>
                         <HBox spacing="10.0">
                             <Button text="Add Line"/>
                             <Button text="Delete Line"/>
