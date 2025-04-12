@@ -23,7 +23,7 @@ public class MachineTabController {
     public Text OutputArea;
     public void MemGuiToMachine(){
         //THIS ASSUMES ALL MEMORY IS VALID WORDS. PLEASE RUN A VALIDITY CHECK BEFORE USING
-        ArrayList<WordGui> a = MLApplication.GuiMemory;
+        ArrayList<WordGui> a = MachineFileGui.GuiMemory;
         for(int i = 0; i < a.size(); i++){
             m.memory.setWordSingle(i, a.get(i).getValue()); //add all visual gui to machine memory
         }
@@ -51,7 +51,7 @@ public class MachineTabController {
 
     protected void loadFile(File selectedFile) {
         try {
-            ArrayList<WordGui> a = MLApplication.GuiMemory;
+            ArrayList<WordGui> a = MachineFileGui.GuiMemory;
             int index = 0;
             Scanner sc = new Scanner(selectedFile);
             while (sc.hasNextLine() && index < 100) {
@@ -71,7 +71,7 @@ public class MachineTabController {
     }
 
     protected void onRunButtonClick(){
-        ArrayList<WordGui> a = MLApplication.GuiMemory;
+        ArrayList<WordGui> a = MachineFileGui.GuiMemory;
         for(WordGui i : a){
             if(i.getStringValue().equals("-99999")){
                 i.setValue("+4300");
@@ -119,7 +119,7 @@ public class MachineTabController {
     }
 
     public void AddLine(int index){
-        ArrayList<WordGui> a = MLApplication.GuiMemory;
+        ArrayList<WordGui> a = MachineFileGui.GuiMemory;
         for(int i = 99; i > index; i--){
             String storage = a.get(i - 1).getStringValue();
             a.get(i).setValue(storage);
@@ -128,7 +128,7 @@ public class MachineTabController {
     }
 
     public void DeleteLine(int index){
-        ArrayList<WordGui> a = MLApplication.GuiMemory;
+        ArrayList<WordGui> a = MachineFileGui.GuiMemory;
         for(int i = index; i < 99; i++){
             String storage = a.get(i + 1).getStringValue();
             a.get(i).setValue(storage);
@@ -137,7 +137,7 @@ public class MachineTabController {
     }
 
     public int AmountOfAvailableLines(){
-        ArrayList<WordGui> a = MLApplication.GuiMemory;
+        ArrayList<WordGui> a = MachineFileGui.GuiMemory;
         for(int i = 99; i > 0; i--){
             if(!a.get(i).getStringValue().equals("+0000")){
                 System.out.println(a.get(i).getStringValue());
@@ -148,7 +148,7 @@ public class MachineTabController {
     }
 
     public int AmountOfSelectedWordGui(){
-        ArrayList<WordGui> a = MLApplication.GuiMemory;
+        ArrayList<WordGui> a = MachineFileGui.GuiMemory;
         int b = 0;
         for(int i = 99; i > -1; i--){
             if(a.get(i).isChecked()){

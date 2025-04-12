@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.io.File;
 
 public class MachineFileGui {
-
+    static ArrayList<WordGui> GuiMemory;
     final int MEMORY_LENGTH = 250;
 
     //will import machine when functionality is added
@@ -107,7 +107,7 @@ public class MachineFileGui {
 
         //todo: assemble all above architecture
 
-        ArrayList<WordGui> GuiMemory = new ArrayList<WordGui>();
+        GuiMemory = new ArrayList<WordGui>();
         for(int i = 0; i < MEMORY_LENGTH; i++){
             GuiMemory.add(new WordGui(i));
         }
@@ -140,6 +140,7 @@ public class MachineFileGui {
     Tab getTab(){
         return mactab;
     }
+
 
 
 }
