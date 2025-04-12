@@ -188,7 +188,7 @@ public class WordGui {
             case 11://write
                 return "Write a word from memory into the screen\n";
             case 20://load
-                return "Store word from memory into the accumulator\n";
+                return "load word from memory into the accumulator\n";
             case 21://store
                 return "Store word from accumulator into memory\n";
             case 30:// add

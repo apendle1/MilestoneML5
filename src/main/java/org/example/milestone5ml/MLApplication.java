@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MLApplication extends Application {
-    static ArrayList<WordGui> GuiMemory;
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MLApplication.class.getResource("MLApplication.fxml"));

@@ -19,7 +19,6 @@ public class Machine {
     //run
     public String run()  {
         //while loop
-
         boolean finished = false;
         awaitingRead = false;
         accumulator = 0;
@@ -35,6 +34,7 @@ public class Machine {
             } else if (command / 100 == 11) {//write
                 returnValue += write(argument)+"\n";
             } else if (command / 100 == 20) {//load
+                System.out.println(4444);
                 returnValue += load(argument)+"\n";
             } else if (command / 100 == 21) {//store
                 returnValue += store(argument)+"\n";

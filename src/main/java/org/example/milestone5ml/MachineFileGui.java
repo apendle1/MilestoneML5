@@ -20,15 +20,15 @@ import java.io.File;
 public class MachineFileGui {
 
     final int MEMORY_LENGTH = 250;
-
-    ArrayList<WordGui> GuiMemory;
+    private static MachineFileGui instance;
+    public  ArrayList<WordGui> GuiMemory;
 
     //will import machine when functionality is added
 
     Tab mactab;
     public MachineTabController MController;
     public MachineFileGui(String filename) {
-        MController = new MachineTabController();
+        MController = new MachineTabController(instance);
         mactab = new Tab();
         mactab.setText(String.valueOf(filename));
 
@@ -39,7 +39,8 @@ public class MachineFileGui {
         createFramework();
     }
     public MachineFileGui(File filename) {
-        MController = new MachineTabController();
+        instance = this;
+        MController = new MachineTabController(instance);
         mactab = new Tab(); //tab that holds tabpane frame
         mactab.setText(String.valueOf(filename));
 
@@ -150,49 +151,5 @@ public class MachineFileGui {
     }
 
 
+
 }
-/*
-<Tab text="Run" closable="false">
-                    <HBox spacing="20.0">
-                        <padding>
-                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-                        </padding>
-                        <VBox fx:id="interior3" spacing = "20.0">
-                            <TextArea fx:id="InputArea"/>
-                            <ScrollPane prefHeight="300">
-                                <Text fx:id="OutputArea"></Text>
-                            </ScrollPane>
-                            <Button text="Run"/>
-                        </VBox>
-                        <ScrollPane prefWidth="400">
-                            <Text>eh</Text>
-                        </ScrollPane>
-                    </HBox>
-                </Tab>
-                <Tab text="Command View" closable="false">
-                    <VBox fx:id="interior1" alignment="TOP_LEFT" spacing="20.0">
-                        <ScrollPane prefWidth="600" prefHeight="415">
-                            <VBox fx:id="MemContainer">
-                            </VBox>
-                        </ScrollPane>
-                        <HBox spacing="10.0">
-                            <Button text="Add Line"/>
-                            <Button text="Delete Line"/>
-                            <Button text="Submit"/>
-                            <Label fx:id="ACCIDXLabel">ACC: 0000    IDX: 0000</Label>
-                        </HBox>
-                    </VBox>
-                </Tab>
-                <Tab text="Textbox View" closable="false">
-                    <HBox  alignment="TOP_CENTER" spacing= "20.0">
-                        <VBox fx:id="interior4" alignment="TOP_LEFT" spacing="20.0">
-                            <padding>
-                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-                            </padding>
-                            <TextArea text="file in text version. Each line is a new MLcommand. Edits to text edit run code." maxHeight="40"/>
-                            <TextArea fx:id="fileInputArea"/>
-                            <Button text ="submit"/>
-                        </VBox>
-                    </HBox>
-                </Tab>
- */
