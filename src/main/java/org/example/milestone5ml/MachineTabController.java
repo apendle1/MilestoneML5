@@ -54,7 +54,6 @@ public class MachineTabController {
             int index = 0;
             Scanner sc = new Scanner(selectedFile);
             while (sc.hasNextLine() && index < 100) {
-                System.out.println("got here");
                 String line = sc.nextLine();
                 a.get(index).setValue(line);
                 index++;
