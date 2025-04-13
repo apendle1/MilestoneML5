@@ -28,6 +28,7 @@ public class MachineFileGui {
     Tab mactab;
     public MachineTabController MController;
     public MachineFileGui(String filename) {
+        instance = this;
         MController = new MachineTabController(instance);
         mactab = new Tab();
         mactab.setText(String.valueOf(filename));
@@ -111,18 +112,18 @@ public class MachineFileGui {
         ctvbcontainer.setPadding(new Insets(20, 20, 20, 20));
         ctvbcontainer.setAlignment(Pos.TOP_LEFT);
         ctvbcontainer.setSpacing(20.0);
-        //ScrollPane ctcommandpane = new ScrollPane();
-        //ctcommandpane.setPrefWidth(600);
-        //ctcommandpane.setPrefHeight(415);
-        //VBox memcontainer = new VBox();
         ListView<HBox> ctcommandpane = new ListView<HBox>();
         HBox cthbtoolbar = new HBox();
         cthbtoolbar.setSpacing(10.0);
         cthbtoolbar.setAlignment(Pos.BASELINE_LEFT);
         Button ctaddline = new Button();
         ctaddline.setText("Add Line");
+        MController.setAddLineButton(ctaddline);
+        ctaddline.setOnAction(event -> MController.onAddButtonClick());
         Button ctdelline = new Button();
         ctdelline.setText("Delete Line");
+        MController.setDelLineButton(ctdelline);
+        ctdelline.setOnAction(event -> MController.onDeleteButtonClick());
         Button ctsubmit = new Button();
         ctsubmit.setText("Submit");
 

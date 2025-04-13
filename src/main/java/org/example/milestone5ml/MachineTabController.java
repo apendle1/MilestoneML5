@@ -116,7 +116,6 @@ public class MachineTabController {
         ArrayList<WordGui> a = mf.GuiMemory;
 
         for(WordGui i : a){
-            System.out.println(i.getValue());
             if(i.getStringValue().equals("-99999")){
                 i.setValue("+4300");
             }
@@ -162,6 +161,35 @@ public class MachineTabController {
         }
     }
 
+    Button addlineButton;
+
+    public void setAddLineButton(Button addlineButton){
+        this.addlineButton = addlineButton;
+    }
+
+    protected void onAddButtonClick(){
+        System.out.println(AmountOfSelectedWordGui());
+        System.out.println(AmountOfAvailableLines());
+        if(AmountOfSelectedWordGui() == 0){
+            OutputArea.setText(OutputArea.getText() + "No Selected Locations\n");
+            return;
+        }
+        if(AmountOfSelectedWordGui() > AmountOfAvailableLines()){
+            OutputArea.setText(OutputArea.getText() + "Not enough blank lines at the end for requested addition\n");
+            return;
+        }
+        ArrayList<WordGui> a = mf.GuiMemory;
+        AddLine(3);
+        for(int i = 99; i > -1; i--){
+            if(a.get(i).isChecked()){
+                AddLine(i);
+            }
+        }
+        for(WordGui i : a){
+            i.deselect();
+        }
+    }
+
     public void AddLine(int index){
         ArrayList<WordGui> a = mf.GuiMemory;
         for(int i = 99; i > index; i--){
@@ -169,6 +197,24 @@ public class MachineTabController {
             a.get(i).setValue(storage);
         }
         a.get(index).setValue("+0000");
+    }
+
+    Button dellineButton;
+
+    public void setDelLineButton(Button dellineButton){
+        this.dellineButton = dellineButton;
+    }
+
+    protected void onDeleteButtonClick(){
+        ArrayList<WordGui> a = mf.GuiMemory;
+        for(int i = 99; i > -1; i--){
+            if(a.get(i).isChecked()){
+                DeleteLine(i);
+            }
+        }
+        for(WordGui i : a){
+            i.deselect();
+        }
     }
 
     public void DeleteLine(int index){
