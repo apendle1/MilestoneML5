@@ -42,10 +42,11 @@ public class MachineTabController {
     public TextArea fileInputArea;
     public void setFileInputArea(TextArea fileInputArea){
         this.fileInputArea = fileInputArea;
-        if(fileInputArea == null){ System.out.println("list is null"); }
+
     }
 
     public void addMLPlainText(){
+        fileInputArea.clear();
         ArrayList<WordGui> a = mf.GuiMemory;
         for(int i = 0; i < a.size(); i++){
             if(fileInputArea == null){ System.out.println("list is null"); }
@@ -121,11 +122,18 @@ public class MachineTabController {
         }
         addMLPlainText();
     }
+
+
+    public void onCTSubmitButtonClick() {
+        addMLPlainText();
+    }
+
     Button saveButton;
 
     public void setSaveButton(Button saveButton){
         this.saveButton = saveButton;
     }
+
 
     public void onSaveButtonClick(){
         Stage stage = (Stage) saveButton.getScene().getWindow(); // Get the current window

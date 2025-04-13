@@ -136,6 +136,7 @@ public class MachineFileGui {
         ctdelline.setOnAction(event -> MController.onDeleteButtonClick());
         Button ctsubmit = new Button();
         ctsubmit.setText("Submit");
+        ctsubmit.setOnAction(event -> MController.onCTSubmitButtonClick());
 
         //todo: assemble all above architecture
 
