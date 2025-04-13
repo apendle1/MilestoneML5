@@ -12,19 +12,46 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.ListView?>
-<VBox alignment="TOP_LEFT" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.control.ColorPicker?>
+<VBox fx:id="background1" alignment="TOP_LEFT" spacing="20.0" xmlns:fx="http://javafx.com/fxml" style= "-fx-background-color: #4C721D"
       fx:controller="org.example.milestone5ml.AppController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-    <HBox spacing="20.0">
+    <HBox spacing="20.0" fx:id="interior">
         <Button text="New File" onAction="#onNewFileButtonClick"/>
         <Button text="Open File" onAction="#onOpenFileButtonClick"/>
     </HBox>
     <TabPane fx:id="ctabframe">
         <Tab text="ReadMe">
+            <HBox fx:id="interior3" alignment="TOP_CENTER">
+                <TextArea text=""></TextArea>
+            </HBox>
         </Tab>
-        <Tab text="Settings">
+        <Tab text="Settings" closable="false">
+            <HBox alignment="TOP_CENTER">
+
+                <padding>
+                    <Insets bottom="200.0" left="20.0" right="20.0" top="20.0"/>
+                </padding>
+                <VBox fx:id="interior2" alignment="TOP_CENTER" spacing = "10.0" style="-fx-background-color: white">
+                    <TextArea text="Choose color for application layout and submit" maxHeight="40" maxWidth="300"/>
+                    <TextArea text="Primary color:" maxHeight="10" maxWidth="150" />
+                    <ColorPicker fx:id="primaryColor">
+
+                    </ColorPicker>
+                    <TextArea text="Secondary color:" maxHeight="10" maxWidth="150"/>
+                    <ColorPicker fx:id="secondaryColor">
+
+                    </ColorPicker>
+                    <HBox>
+                        <Button text ="submit" onAction="#onSubmitColorButtonClick"/>
+                        <Button text="reset" />
+                    </HBox>
+
+                </VBox>
+
+            </HBox>
         </Tab>
     </TabPane>
 </VBox>
