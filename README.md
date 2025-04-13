@@ -3,7 +3,7 @@
 
 #### Our goal is to create a program in java that works as a simple virtual machine. It will be capable of performing basicML programs. The purpose of this program is to teach students CS principles.
 
-#### The program has five classes:  WordGui, AppController, MachineTabcontroller MLApplication, Machine, and Memory. WordGui and MLapplication work together to create the GUI. The AppController and MachineTabController bridges the gap between machine and the GUI, so that all the buttons work and the information displays. The two functions in Machine that pull everything together are Parse and Run. Parse organizes the file into a readable format for the run function. Run goes through each basicML command and calls a use case depending on the contents of the command.
+#### The program has seven classes:  WordGui, AppController, MachineTabcontroller, MachineFileGui, MLApplication, Machine, and Memory. WordGui, Machine Gui and MLapplication work together to create the GUI. The AppController and MachineTabController bridges the gap between machine and the GUI, so that all the buttons work and the information displays. The two functions in Machine that pull everything together are Parse and Run. Parse organizes the file into a readable format for the run function. Run goes through each basicML command and calls a use case depending on the contents of the command.
 
 ## How to Run Our Program on your Computer:
 1. check that you have java installed
@@ -37,25 +37,20 @@ At first glance you will see a tab system and two buttons
 - textbox View contians a view of all the commands without the commands in their own text
   areas so that multiple commands can be pasted at once
 
-## Running Test Files
-1. Open a interpreter for java
-2. Navigate to the test files and run
-
 ## How to copy and paste
 1. At the top of the page there will be three tabs click on the tab that says "Textbox View"
 2. This window contains all commands saved from file or inputed in a text box and allows text to be easily copy and pasted
 3. Copy and paste the input and ensure that it is formatted correctly(ie. one 4 letter command per line)
-4. click submit
+4. click sync with command view
 5. The commands will now be saved and appear on this tab and the run tab.
 ## Changing Colors
 1. At the top of the page there will be three tabs click on the tab that says "Settings"
 2. There will be two drop down labeled primary and secondary color.
 3. Select your desired colors and click submit
-4. If you want to go back to the default colors click reset.
 ## Adding and deleting new Mlcommand lines
 1. At the top of the page there will be three tabs make sure you are on the tab that is labeled "run"
 2. On the page to the right there will be a scroll pane that lists all the commands loaded
-3. Beneath that there will be three buttons "add line", "delete line", and "submit changes"
+3. Beneath that there will be three buttons "add line", "delete line", and sync with textbox view
 4. To add a new command select a box and click add line and a new line to type command in a will be added to the above the selected command
 5. To remove a command select a box click delete command and the line will be removed
 6. To edit current commands type into one of the text boxes and type in your new command. After click submit changes
