@@ -14,15 +14,15 @@
 7. If the file does not run after clicking the run button, check the discriptions next to the list of commands(The descriptions will say whether the command is valid or not)
 8. The output field will keep you updated on when the program is finished
 ## Navigating our program
-At first glance you will see a tab system and two buttons.\ 
-The two buttons: 
+At first glance you will see a tab system and two buttons. 
+\The two buttons: 
  * new file will create a new file tab that you can enter in new commands
- * open file will allow you to open an existing file from your computer\
-The tab system:
+ * open file will allow you to open an existing file from your computer
+\The tab system:
  * Readme contains a breif discription of what is in this document
  * settings allows you to change the color scheme
- * all subsequent tabs are files\
-File Tabs
+ * all subsequent tabs are files
+\File Tabs
  * When you click on a file an additional tab system will appear
  * run contains an input and output field and a run a and save button
  * command view contains a view of all the commands with descriptions
