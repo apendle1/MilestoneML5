@@ -34,7 +34,7 @@ public class MLApplication extends Application {
                 "\n" +
                 "#### Our goal is to create a program in java that works as a simple virtual machine. It will be capable of performing basicML programs. The purpose of this program is to teach students CS principles.\n" +
                 "\n" +
-                "#### The program has five classes:  WordGui, AppController, MachineTabcontroller MLApplication, Machine, and Memory. WordGui and MLapplication work together to create the GUI. The AppController and MachineTabController bridges the gap between machine and the GUI, so that all the buttons work and the information displays. The two functions in Machine that pull everything together are Parse and Run. Parse organizes the file into a readable format for the run function. Run goes through each basicML command and calls a use case depending on the contents of the command.\n" +
+                "#### The program has seven classes:  WordGui, AppController, MachineTabcontroller, MachineFileGui, MLApplication, Machine, and Memory. WordGui, Machine Gui and MLapplication work together to create the GUI. The AppController and MachineTabController bridges the gap between machine and the GUI, so that all the buttons work and the information displays. The two functions in Machine that pull everything together are Parse and Run. Parse organizes the file into a readable format for the run function. Run goes through each basicML command and calls a use case depending on the contents of the command.\n" +
                 "\n" +
                 "## How to Run Our Program on your Computer:\n" +
                 "1. check that you have java installed\n" +
@@ -68,29 +68,23 @@ public class MLApplication extends Application {
                 "- textbox View contians a view of all the commands without the commands in their own text\n" +
                 "  areas so that multiple commands can be pasted at once\n" +
                 "\n" +
-                "## Running Test Files\n" +
-                "1. Open a interpreter for java\n" +
-                "2. Navigate to the test files and run\n" +
-                "\n" +
                 "## How to copy and paste\n" +
                 "1. At the top of the page there will be three tabs click on the tab that says \"Textbox View\"\n" +
                 "2. This window contains all commands saved from file or inputed in a text box and allows text to be easily copy and pasted\n" +
                 "3. Copy and paste the input and ensure that it is formatted correctly(ie. one 4 letter command per line)\n" +
-                "4. click submit\n" +
+                "4. click sync with command view\n" +
                 "5. The commands will now be saved and appear on this tab and the run tab.\n" +
                 "## Changing Colors\n" +
                 "1. At the top of the page there will be three tabs click on the tab that says \"Settings\"\n" +
                 "2. There will be two drop down labeled primary and secondary color.\n" +
                 "3. Select your desired colors and click submit\n" +
-                "4. If you want to go back to the default colors click reset.\n" +
                 "## Adding and deleting new Mlcommand lines\n" +
                 "1. At the top of the page there will be three tabs make sure you are on the tab that is labeled \"run\"\n" +
                 "2. On the page to the right there will be a scroll pane that lists all the commands loaded\n" +
-                "3. Beneath that there will be three buttons \"add line\", \"delete line\", and \"submit changes\"\n" +
+                "3. Beneath that there will be three buttons \"add line\", \"delete line\", and sync with textbox view\n" +
                 "4. To add a new command select a box and click add line and a new line to type command in a will be added to the above the selected command\n" +
                 "5. To remove a command select a box click delete command and the line will be removed\n" +
-                "6. To edit current commands type into one of the text boxes and type in your new command. After click submit changes\n" +
-                "\n";
+                "6. To edit current commands type into one of the text boxes and type in your new command. After click submit changes";
                 t.setText(text);
     }
 
