@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
+import java.util.List;
+
 import static javafx.geometry.Pos.CENTER_LEFT;
 
 public class WordGui {
@@ -80,7 +82,7 @@ public class WordGui {
                 try{
                     if(wordField.getText().charAt(0) == '-'){
                         int b = Integer.parseInt(wordField.getText());
-                        if(b >= -9999 && b < 0){
+                        if(b >= -999999 && b < 0){
                             interp.setText("Value");
                         } else {
                             if(wordField.getText().equals("-99999")){
@@ -91,7 +93,7 @@ public class WordGui {
                         }
                     } else if(wordField.getText().charAt(0) == '+') {
                         int b = Integer.parseInt(wordField.getText().substring(1));
-                        if(b >= 0 && b < 10000){
+                        if(b >= 0 && b < 1000000){
                             interp.setText(intToString(b));
                         } else {
                             interp.setText("Improper Input");

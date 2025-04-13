@@ -28,8 +28,10 @@ public class AppController {
         fileChooser.setTitle("Open Machine Language File");
         File selectedFile = fileChooser.showOpenDialog(null);
 
-        MachineFileGui m = new MachineFileGui(selectedFile);
-        ctabframe.getTabs().add(m.getTab());
+        if(selectedFile != null){
+            MachineFileGui m = new MachineFileGui(selectedFile);
+            ctabframe.getTabs().add(m.getTab());
+        }
     }
 
     @FXML

@@ -102,8 +102,8 @@ public class MachineTabController {
             for (int i = 1; i < lines.size(); i++) {
                 String word = lines.get(i);
                 if (!word.matches("[+-]?\\d{" + numlength + "}")) {
-                    message.append("Invalid word at line  ").append(i+1).append(": ").append(word).append("\n");
                     isValid = false;
+                    break;
                 }
             }
 
