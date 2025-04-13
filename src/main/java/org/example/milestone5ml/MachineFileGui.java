@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.ListView;
 
@@ -89,6 +90,8 @@ public class MachineFileGui {
         ScrollPane rtcommandpane = new ScrollPane();
         rtcommandpane.setPrefWidth(400);
         Text rtcommandtext = new Text();
+        rtcommandtext.setFont(Font.font("Courier"));
+        MController.setComRunList(rtcommandtext);
         Label accidxlabel = new Label();
         MController.setACCIDXLabel(accidxlabel);
         accidxlabel.setText("ACC: 0000    IDX: 0000");

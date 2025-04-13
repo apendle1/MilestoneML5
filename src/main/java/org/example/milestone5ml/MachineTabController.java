@@ -17,6 +17,8 @@ import java.util.Scanner;
 
 public class MachineTabController {
 
+    int numlength = 6; //by default we should be displaying 6 digit words
+
     Machine m;
     String returnString="";
     MachineFileGui mf;
@@ -31,7 +33,7 @@ public class MachineTabController {
         //THIS ASSUMES ALL MEMORY IS VALID WORDS. PLEASE RUN A VALIDITY CHECK BEFORE USING
         ArrayList<WordGui> a = mf.GuiMemory;
         for(int i = 0; i < 100; i++){//change to size
-            System.out.println(a.get(i).toString());
+            //System.out.println(a.get(i).toString());
             m.memory.setWordSingle(i, a.get(i).getValue()); //add all visual gui to machine memory
         }
     }
@@ -112,6 +114,12 @@ public class MachineTabController {
         this.runButton = runButton;
     }
 
+    Text comrunlist;
+
+    public void setComRunList(Text a){
+        this.comrunlist = a;
+    }
+
     public void onRunButtonClick(){
         ArrayList<WordGui> a = mf.GuiMemory;
 
@@ -125,6 +133,15 @@ public class MachineTabController {
             MemGuiToMachine();
             returnString = m.run();
             ACCIDXLabel.setText("ACC: "+m.accumulator+"    "+"IDX: "+m.index);
+            String tbstring = "";
+            int id = 0;
+            for(int i : m.memory.getWordlist()){
+                tbstring = tbstring + String.format("%03d", id) + ": " + String.format("%+07d", i) + "\n";
+                id++;
+            }
+            comrunlist.setText(tbstring);
+
+
             if(m.awaitingRead) {
                 OutputArea.setText(OutputArea.getText() + returnString);
                 InputArea.setOnKeyReleased(event -> handleKeyRelease(event, 4));
@@ -158,6 +175,13 @@ public class MachineTabController {
             returnString = m.run2();
             OutputArea.setText(OutputArea.getText() + returnString);
             ACCIDXLabel.setText("ACC: "+m.accumulator+"    "+"IDX: "+m.index);
+            String tbstring = "";
+            int id = 0;
+            for(int i : m.memory.getWordlist()){
+                tbstring = tbstring + String.format("%03d", id) + ": " + String.format("%+07d", i) + "\n";
+                id++;
+            }
+            comrunlist.setText(tbstring);
         }
     }
 
