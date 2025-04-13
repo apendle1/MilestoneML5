@@ -4,9 +4,14 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
 import java.io.File;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -65,6 +70,42 @@ public class MachineTabController {
         }
 
     }
+    Button saveButton;
+
+    public void setSaveButton(Button saveButton){
+        this.saveButton = saveButton;
+    }
+
+    public void onSaveButtonClick(){
+        Stage stage = (Stage) saveButton.getScene().getWindow(); // Get the current window
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+
+        File fileToSave = fileChooser.showSaveDialog(stage);
+
+        if (fileToSave != null) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToSave))) {
+                for (WordGui wordGui : mf.GuiMemory) {
+                    writer.write(wordGui.getStringValue() + "\n"); // Save each value
+                }
+                writer.flush();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText(null);
+                alert.setContentText("File saved successfully: " + fileToSave.getAbsolutePath());
+                alert.showAndWait();
+            } catch (IOException e) {
+                Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
+                errorAlert.setTitle("Error");
+                errorAlert.setHeaderText(null);
+                errorAlert.setContentText("Error saving file: " + e.getMessage());
+                errorAlert.showAndWait();
+            }
+        }
+    }
+
     Button runButton;
 
     public void setRunButton(Button runButton) {

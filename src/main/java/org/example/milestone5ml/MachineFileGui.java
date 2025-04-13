@@ -91,11 +91,15 @@ public class MachineFileGui {
         Label accidxlabel = new Label();
         MController.setACCIDXLabel(accidxlabel);
         accidxlabel.setText("ACC: 0000    IDX: 0000");
+        Button savebutton = new Button();
+        savebutton.setText("Save");
+        MController.setSaveButton(savebutton);
+        savebutton.setOnAction(event -> MController.onSaveButtonClick());
 
         //todo: assemble all above architecture
         rtcommandpane.setContent(rtcommandtext);//command list -> command scrollpane
         rtoutputpane.setContent(outputarea);//output text -> output scrollpane
-        rthbvtoolbox.getChildren().addAll(runbutton, accidxlabel);
+        rthbvtoolbox.getChildren().addAll(runbutton, savebutton, accidxlabel);
         rthbvcontainer.getChildren().addAll(rtinput, rtoutputpane, rthbvtoolbox);//run interface
         rthbcontainer.getChildren().addAll(rthbvcontainer, rtcommandpane);//interface and command panes -> tab
         runtab.setContent(rthbcontainer);
