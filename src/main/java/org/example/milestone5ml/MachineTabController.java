@@ -69,7 +69,7 @@ public class MachineTabController {
     protected void loadFile(File selectedFile, ArrayList<WordGui> a) {
         StringBuilder message = new StringBuilder();
         boolean isValid = true;
-        int requiredLength = -1;
+        numlength = -1;
         List<String> lines = new ArrayList<>();
         try(Scanner sc = new Scanner(selectedFile)) {
             //int index = 0;
@@ -88,10 +88,10 @@ public class MachineTabController {
 
             String firstLine = lines.get(0);
             if (firstLine.matches("[+-]?\\d{4}")) {
-                requiredLength = 4;
+                numlength = 4;
                 message.append("First line is a valid 4-digit word. All subsequent words must be 4 digits long.\n");
             } else if (firstLine.matches("[+-]?\\d{6}")) {
-                requiredLength = 6;
+                numlength = 6;
                 message.append("First line is a valid 6-digit word. All subsequent words must be 6 digits long.\n");
             } else {
                 message.append("Invalid first line: must be a 4- or 6-digit signed/unsigned number.\n");
@@ -100,7 +100,7 @@ public class MachineTabController {
 
             for (int i = 1; i < lines.size(); i++) {
                 String word = lines.get(i);
-                if (!word.matches("[+-]?\\d{" + requiredLength + "}")) {
+                if (!word.matches("[+-]?\\d{" + numlength + "}")) {
                     message.append("Invalid word at line  ").append(i+1).append(": ").append(word).append("\n");
                     isValid = false;
                 }
@@ -111,7 +111,7 @@ public class MachineTabController {
             }
 
             if(isValid) {
-                OutputArea.setText("File successfully loaded into memory.");
+                OutputArea.setText("File successfully loaded into memory.\n");
             } else {
                 OutputArea.setText(message.toString());
             }
@@ -184,8 +184,9 @@ public class MachineTabController {
             ACCIDXLabel.setText("ACC: "+m.accumulator+"    "+"IDX: "+m.index);
             String tbstring = "";
             int id = 0;
+            String formatstring = "%+0" + (numlength + 1) + "d";
             for(int i : m.memory.getWordlist()){
-                tbstring = tbstring + String.format("%03d", id) + ": " + String.format("%+07d", i) + "\n";
+                tbstring = tbstring + String.format("%03d", id) + ": " + String.format(formatstring, i) + "\n";
                 id++;
             }
             comrunlist.setText(tbstring);
@@ -234,8 +235,9 @@ public class MachineTabController {
             ACCIDXLabel.setText("ACC: "+m.accumulator+"    "+"IDX: "+m.index);
             String tbstring = "";
             int id = 0;
+            String formatstring = "%+0" + (numlength + 1) + "d";
             for(int i : m.memory.getWordlist()){
-                tbstring = tbstring + String.format("%03d", id) + ": " + String.format("%+07d", i) + "\n";
+                tbstring = tbstring + String.format("%03d", id) + ": " + String.format(formatstring, i) + "\n";
                 id++;
             }
             comrunlist.setText(tbstring);
