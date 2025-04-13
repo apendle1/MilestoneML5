@@ -72,6 +72,9 @@ public class MachineFileGui {
         rthbcontainer.setPadding(new Insets(20, 20, 20, 20));
         VBox rthbvcontainer = new VBox();
         rthbvcontainer.setSpacing(20.0);
+        HBox rthbvtoolbox = new HBox();
+        rthbvtoolbox.setSpacing(10.0);
+        rthbvtoolbox.setAlignment(Pos.BASELINE_LEFT);
         TextArea rtinput = new TextArea();
         MController.setInputArea(rtinput);
         ScrollPane rtoutputpane = new ScrollPane();
@@ -85,11 +88,15 @@ public class MachineFileGui {
         ScrollPane rtcommandpane = new ScrollPane();
         rtcommandpane.setPrefWidth(400);
         Text rtcommandtext = new Text();
+        Label accidxlabel = new Label();
+        MController.setACCIDXLabel(accidxlabel);
+        accidxlabel.setText("ACC: 0000    IDX: 0000");
 
         //todo: assemble all above architecture
         rtcommandpane.setContent(rtcommandtext);//command list -> command scrollpane
         rtoutputpane.setContent(outputarea);//output text -> output scrollpane
-        rthbvcontainer.getChildren().addAll(rtinput, rtoutputpane, runbutton);//run interface
+        rthbvtoolbox.getChildren().addAll(runbutton, accidxlabel);
+        rthbvcontainer.getChildren().addAll(rtinput, rtoutputpane, rthbvtoolbox);//run interface
         rthbcontainer.getChildren().addAll(rthbvcontainer, rtcommandpane);//interface and command panes -> tab
         runtab.setContent(rthbcontainer);
 
@@ -114,9 +121,6 @@ public class MachineFileGui {
         ctdelline.setText("Delete Line");
         Button ctsubmit = new Button();
         ctsubmit.setText("Submit");
-        Label accidxlabel = new Label();
-        MController.setACCIDXLabel(accidxlabel);
-        accidxlabel.setText("ACC: 0000    IDX: 0000");
 
         //todo: assemble all above architecture
 
@@ -126,7 +130,7 @@ public class MachineFileGui {
         }
 
         //ctcommandpane.setContent(memcontainer);
-        cthbtoolbar.getChildren().addAll(ctaddline, ctdelline, ctsubmit, accidxlabel);
+        cthbtoolbar.getChildren().addAll(ctaddline, ctdelline, ctsubmit);
         ctvbcontainer.getChildren().addAll(ctcommandpane, cthbtoolbar);
         cmtab.setContent(ctvbcontainer);
 
