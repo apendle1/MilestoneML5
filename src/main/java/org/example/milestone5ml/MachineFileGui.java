@@ -179,6 +179,7 @@ public class MachineFileGui {
         mactab.setContent(tpframe);
         MController.setFileInputArea(fileInputArea);
         MController.onCTSubmitButtonClick();
+
     }
 
     Tab getTab(){
