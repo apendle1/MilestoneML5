@@ -49,9 +49,8 @@ public class AppController {
         Color color1 = primaryColor.getValue();
         Color color2 = secondaryColor.getValue();
         interior2.setBackground(Background.fill(color2));
-        //interior1.setBackground(Background.fill(color2));
         interior3.setBackground(Background.fill(color2));
-        //interior4.setBackground(Background.fill(color2));
+        interior.setBackground(Background.fill(color2));
         background1.setBackground(Background.fill(color1));
     }
 }
