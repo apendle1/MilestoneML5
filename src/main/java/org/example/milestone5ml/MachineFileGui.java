@@ -1,7 +1,5 @@
 package org.example.milestone5ml;
 
-import javafx.beans.property.ReadOnlyProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -12,8 +10,6 @@ import javafx.scene.text.Text;
 import javafx.scene.control.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 
 import java.io.File;
@@ -69,6 +65,7 @@ public class MachineFileGui {
 
         Tab runtab = new Tab();//Run Tab
         runtab.setText("Run");
+        runtab.setClosable(false);
         //todo: create all necessary command tab architecture
         HBox rthbcontainer = new HBox();
         rthbcontainer.setSpacing(20.0);
@@ -111,6 +108,7 @@ public class MachineFileGui {
         MController.setInputArea(rtinput);
 
         Tab cmtab = new Tab();//Command Tab
+        cmtab.setClosable(false);
         cmtab.setText("Command View");
         MController.setRunButton(runbutton);
         MController.SetOutputArea(outputarea);
@@ -148,6 +146,7 @@ public class MachineFileGui {
         cmtab.setContent(ctvbcontainer);
 
         Tab txttab = new Tab();//Textbox Tab
+        txttab.setClosable(false);
         txttab.setText("Textbox View");
         //todo: create all necessary txtbox tab architecture
         HBox txthbox = new HBox();

@@ -33,7 +33,7 @@ public class MachineTabController {
     public void MemGuiToMachine(){
         //THIS ASSUMES ALL MEMORY IS VALID WORDS. PLEASE RUN A VALIDITY CHECK BEFORE USING
         ArrayList<WordGui> a = mf.GuiMemory;
-        for(int i = 0; i < 100; i++){//change to size
+        for(int i = 0; i < 250; i++){//change to size
             //System.out.println(a.get(i).toString());
             m.memory.setWordSingle(i, a.get(i).getValue()); //add all visual gui to machine memory
         }
@@ -75,11 +75,16 @@ public class MachineTabController {
         try(Scanner sc = new Scanner(selectedFile)) {
             //int index = 0;
             //Scanner sc = new Scanner(selectedFile);
-            while (sc.hasNextLine()) {//&& index < 250) {
+            int index = 0;
+            while (sc.hasNextLine() && index < 250) {
+                index++;
                 //String line = sc.nextLine();
                 //a.get(index).setValue(line);
                 //index++;
                 lines.add(sc.nextLine().trim());
+            }
+            if(sc.hasNextLine()){
+                OutputArea.setText("File is longer than 250 lines and has been truncated.\n");
             }
 
             if (lines.isEmpty()){
@@ -112,7 +117,7 @@ public class MachineTabController {
             }
 
             if(isValid) {
-                OutputArea.setText("File successfully loaded into memory.\n");
+                OutputArea.setText(OutputArea.getText() + "File successfully loaded into memory.\n");
             } else {
                 OutputArea.setText(message.toString());
             }
