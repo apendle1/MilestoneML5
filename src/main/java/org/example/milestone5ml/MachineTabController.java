@@ -75,16 +75,11 @@ public class MachineTabController {
         try(Scanner sc = new Scanner(selectedFile)) {
             //int index = 0;
             //Scanner sc = new Scanner(selectedFile);
-            int index = 0;
-            while (sc.hasNextLine() && index < 250) {
-                index++;
+            while (sc.hasNextLine()) {//&& index < 250) {
                 //String line = sc.nextLine();
                 //a.get(index).setValue(line);
                 //index++;
                 lines.add(sc.nextLine().trim());
-            }
-            if(sc.hasNextLine()){
-                OutputArea.setText("File is longer than 250 lines and has been truncated.\n");
             }
 
             if (lines.isEmpty()){
@@ -117,7 +112,7 @@ public class MachineTabController {
             }
 
             if(isValid) {
-                OutputArea.setText(OutputArea.getText() + "File successfully loaded into memory.\n");
+                OutputArea.setText("File successfully loaded into memory.\n");
             } else {
                 OutputArea.setText(message.toString());
             }
@@ -275,6 +270,7 @@ public class MachineTabController {
             return;
         }
         ArrayList<WordGui> a = mf.GuiMemory;
+        AddLine(3);
         for(int i = 99; i > -1; i--){
             if(a.get(i).isChecked()){
                 AddLine(i);
@@ -291,8 +287,7 @@ public class MachineTabController {
             String storage = a.get(i - 1).getStringValue();
             a.get(i).setValue(storage);
         }
-
-        a.get(index).setValue(String.format("%+0" + (numlength + 1) +"d", 0));
+        a.get(index).setValue("+0000");
     }
 
     Button dellineButton;
@@ -325,7 +320,7 @@ public class MachineTabController {
     public int AmountOfAvailableLines(){
         ArrayList<WordGui> a = mf.GuiMemory;
         for(int i = 99; i > 0; i--){
-            if(!(a.get(i).getStringValue().equals(String.format("%+0" + (numlength + 1) + "d", 0)))){
+            if(!a.get(i).getStringValue().equals("+0000")){
                 System.out.println(a.get(i).getStringValue());
                 return 99 - i;
             }

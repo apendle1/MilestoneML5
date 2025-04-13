@@ -25,7 +25,7 @@
     <TabPane fx:id="ctabframe">
         <Tab text="ReadMe" closable="false">
             <HBox fx:id="interior3" alignment="TOP_CENTER">
-                <TextArea wrapText="true" editable="false" fx:id="rm" prefWidth="600"/>
+                <TextArea wrapText="true" editable="false" fx:id="rm" prefWidth="600" />
             </HBox>
         </Tab>
         <Tab text="Settings" closable="false">
