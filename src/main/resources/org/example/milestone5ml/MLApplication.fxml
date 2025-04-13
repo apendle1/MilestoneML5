@@ -46,7 +46,6 @@
                     </ColorPicker>
                     <HBox>
                         <Button text ="submit" onAction="#onSubmitColorButtonClick"/>
-                        <Button text="reset" />
                     </HBox>
 
                 </VBox>
