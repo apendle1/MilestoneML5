@@ -70,7 +70,7 @@ public class WordGui {
         idl.setText(String.format("%0" + 2 + "d", id));
         idl.setPrefWidth(25.0);
         wordField = new TextField();
-        wordField.setText("+0000");
+        wordField.setText("+000000");
         interp = new Label();
         interp.setText("EMPTY");
         hbox.getChildren().addAll(cbox, idl, wordField, interp);

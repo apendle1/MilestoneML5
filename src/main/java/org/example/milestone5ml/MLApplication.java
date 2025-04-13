@@ -4,11 +4,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MLApplication extends Application {
 
@@ -28,6 +31,17 @@ public class MLApplication extends Application {
         MachineFileGui m = new MachineFileGui("new file");
         c.getTabs().add(m.getTab());
 
+        TextArea t = (TextArea)scene.lookup("#rm");
+        try{
+            File file = new File("README.md");
+            Scanner sc = new Scanner(file);
+            while(sc.hasNextLine()){
+                t.setText(t.getText() + sc.nextLine() + "\n");
+            }
+            sc.close();
+        } catch(Exception e){
+            System.out.println("didn't find it");
+        }
     }
 
     public static void main(String[] args) {

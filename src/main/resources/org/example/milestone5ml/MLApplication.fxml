@@ -23,9 +23,9 @@
         <Button text="Open File" onAction="#onOpenFileButtonClick"/>
     </HBox>
     <TabPane fx:id="ctabframe">
-        <Tab text="ReadMe">
+        <Tab text="ReadMe" closable="false">
             <HBox fx:id="interior3" alignment="TOP_CENTER">
-                <TextArea text=""></TextArea>
+                <TextArea wrapText="true" editable="false" fx:id="rm" prefWidth="600"/>
             </HBox>
         </Tab>
         <Tab text="Settings" closable="false">

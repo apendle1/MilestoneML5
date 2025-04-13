@@ -32,7 +32,7 @@ public class MachineFileGui {
         instance = this;
         MController = new MachineTabController(instance);
         mactab = new Tab();
-        mactab.setText(String.valueOf(filename));
+        mactab.setText(filename);
 
         GuiMemory = new ArrayList<WordGui>();
         for(int i = 0; i < MEMORY_LENGTH; i++){
@@ -53,9 +53,6 @@ public class MachineFileGui {
         }
         createFramework();
         MController.loadFile(filename, GuiMemory);
-
-
-
 
     }
     public void createFramework(){
