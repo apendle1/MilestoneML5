@@ -3,7 +3,7 @@ package org.example.milestone5ml;
 public class Memory {
     private int[] wordlist;
     public Memory() {
-        wordlist = new int[100];
+        wordlist = new int[250];
     }
 
     //set

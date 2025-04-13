@@ -34,7 +34,7 @@ public class WordGui {
                     if (text != null && !text.isEmpty()) {
                         if (text.charAt(0) == '-') {
                             int b = Integer.parseInt(text);
-                            if (b >= -9999 && b < 0) {
+                            if (b >= -999999 && b < 0) {
                                 interp.setText("Value");
                             } else if (text.equals("-99999")) {
                                 interp.setText("Halt: stops the program\n");
@@ -43,7 +43,7 @@ public class WordGui {
                             }
                         } else if (text.charAt(0) == '+') {
                             int b = Integer.parseInt(text.substring(1));
-                            if (b >= 0 && b < 10000) {
+                            if (b >= 0 && b < 1000000) {
                                 interp.setText(intToString(b));
                             } else {
                                 interp.setText("Improper Input");
@@ -140,7 +140,7 @@ public class WordGui {
             // Check if the value is negative
             if (wordField.getText().charAt(0) == '-') {
                 int b = Integer.parseInt(wordField.getText());
-                if (b >= -9999 && b < 0) {
+                if (b >= -999999 && b < 0) {
                     interp.setText("Value: " + intToString(b));
                 } else {
                     interp.setText("Improper Input: Out of Range");
@@ -149,7 +149,7 @@ public class WordGui {
             // Check if the value is positive
             else if (wordField.getText().charAt(0) == '+') {
                 int b = Integer.parseInt(wordField.getText().substring(1));
-                if (b >= 0 && b < 9999) {
+                if (b >= 0 && b < 999999) {
                     interp.setText(intToString(b));
                 } else {
                     interp.setText("Improper Input: Out of Range");
@@ -158,7 +158,7 @@ public class WordGui {
             // Check if it's a positive or zero number without sign
             else {
                 int b = Integer.parseInt(wordField.getText());
-                if (b >= 0 && b < 9999) {
+                if (b >= 0 && b < 999999) {
                     interp.setText(intToString(b));
                 } else {
                     interp.setText("Improper Input: Out of Range");

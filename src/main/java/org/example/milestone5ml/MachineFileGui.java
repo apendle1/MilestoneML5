@@ -55,6 +55,8 @@ public class MachineFileGui {
         MController.loadFile(filename, GuiMemory);
 
 
+
+
     }
     public void createFramework(){
         //constructor needs to create everything in the gui from a new file button.

@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MachineTabController {
@@ -66,14 +67,55 @@ public class MachineTabController {
     }
 
     protected void loadFile(File selectedFile, ArrayList<WordGui> a) {
-        try {
-            int index = 0;
-            Scanner sc = new Scanner(selectedFile);
-            while (sc.hasNextLine() && index < 100) {
-                String line = sc.nextLine();
-                a.get(index).setValue(line);
-                index++;
+        StringBuilder message = new StringBuilder();
+        boolean isValid = true;
+        int requiredLength = -1;
+        List<String> lines = new ArrayList<>();
+        try(Scanner sc = new Scanner(selectedFile)) {
+            //int index = 0;
+            //Scanner sc = new Scanner(selectedFile);
+            while (sc.hasNextLine()) {//&& index < 250) {
+                //String line = sc.nextLine();
+                //a.get(index).setValue(line);
+                //index++;
+                lines.add(sc.nextLine().trim());
             }
+
+            if (lines.isEmpty()){
+                OutputArea.setText("File is empty.");
+                return;
+            }
+
+            String firstLine = lines.get(0);
+            if (firstLine.matches("[+-]?\\d{4}")) {
+                requiredLength = 4;
+                message.append("First line is a valid 4-digit word. All subsequent words must be 4 digits long.\n");
+            } else if (firstLine.matches("[+-]?\\d{6}")) {
+                requiredLength = 6;
+                message.append("First line is a valid 6-digit word. All subsequent words must be 6 digits long.\n");
+            } else {
+                message.append("Invalid first line: must be a 4- or 6-digit signed/unsigned number.\n");
+                isValid = false;
+            }
+
+            for (int i = 1; i < lines.size(); i++) {
+                String word = lines.get(i);
+                if (!word.matches("[+-]?\\d{" + requiredLength + "}")) {
+                    message.append("Invalid word at line  ").append(i+1).append(": ").append(word).append("\n");
+                    isValid = false;
+                }
+            }
+
+            for (int i = 0; i < lines.size() && i < 250; i++) {
+                a.get(i).setValue(lines.get(i));
+            }
+
+            if(isValid) {
+                OutputArea.setText("File successfully loaded into memory.");
+            } else {
+                OutputArea.setText(message.toString());
+            }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
