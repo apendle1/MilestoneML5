@@ -1,7 +1,12 @@
 package org.example.milestone5ml;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -25,5 +30,28 @@ public class AppController {
 
         MachineFileGui m = new MachineFileGui(selectedFile);
         ctabframe.getTabs().add(m.getTab());
+    }
+
+    @FXML
+    ColorPicker primaryColor;
+    @FXML
+    ColorPicker secondaryColor;
+    @FXML
+    VBox background1;
+    @FXML
+    HBox interior3;
+    @FXML
+    HBox interior;
+    @FXML
+    VBox interior2;
+    @FXML
+    protected void onSubmitColorButtonClick(){
+        Color color1 = primaryColor.getValue();
+        Color color2 = secondaryColor.getValue();
+        interior2.setBackground(Background.fill(color2));
+        //interior1.setBackground(Background.fill(color2));
+        interior3.setBackground(Background.fill(color2));
+        //interior4.setBackground(Background.fill(color2));
+        background1.setBackground(Background.fill(color1));
     }
 }

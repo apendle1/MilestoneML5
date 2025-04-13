@@ -36,12 +36,19 @@ public class MachineTabController {
         }
     }
 
-    /*public void addMLPlainText(){
-        ArrayList<WordGui> a = MLApplication.GuiMemory;
+    public TextArea fileInputArea;
+    public void setFileInputArea(TextArea fileInputArea){
+        this.fileInputArea = fileInputArea;
+        if(fileInputArea == null){ System.out.println("list is null"); }
+    }
+
+    public void addMLPlainText(){
+        ArrayList<WordGui> a = mf.GuiMemory;
         for(int i = 0; i < a.size(); i++){
+            if(fileInputArea == null){ System.out.println("list is null"); }
             fileInputArea.appendText(a.get(i).getStringValue() +"\n");
         }
-    }*/
+    }
 
     public void SetOutputArea(Text outputArea) {
         OutputArea = outputArea;
@@ -68,7 +75,7 @@ public class MachineTabController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
+        addMLPlainText();
     }
     Button saveButton;
 
@@ -133,6 +140,14 @@ public class MachineTabController {
             }
         } catch(Exception e){
             OutputArea.setText(OutputArea.getText() + "Cannot Run: Illegal Line\n");
+        }
+    }
+
+    public void onSubmitfileButtonclick(){
+        Scanner scan = new Scanner (fileInputArea.getText());
+        ArrayList<WordGui> a = mf.GuiMemory;
+        for(int i = 0; i < a.size(); i++){
+            a.get(i).setValue(scan.nextLine());
         }
     }
 
