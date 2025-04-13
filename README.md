@@ -38,7 +38,7 @@ At first glance you will see a tab system and two buttons
   areas so that multiple commands can be pasted at once
 
 ## Running Test Files
-1. Open a compiler
+1. Open a interpreter for java
 2. Navigate to the test files and run
 
 ## How to copy and paste
