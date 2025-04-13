@@ -270,7 +270,6 @@ public class MachineTabController {
             return;
         }
         ArrayList<WordGui> a = mf.GuiMemory;
-        AddLine(3);
         for(int i = 99; i > -1; i--){
             if(a.get(i).isChecked()){
                 AddLine(i);
@@ -287,7 +286,8 @@ public class MachineTabController {
             String storage = a.get(i - 1).getStringValue();
             a.get(i).setValue(storage);
         }
-        a.get(index).setValue("+0000");
+
+        a.get(index).setValue(String.format("%+0" + (numlength + 1) +"d", 0));
     }
 
     Button dellineButton;
@@ -320,7 +320,7 @@ public class MachineTabController {
     public int AmountOfAvailableLines(){
         ArrayList<WordGui> a = mf.GuiMemory;
         for(int i = 99; i > 0; i--){
-            if(!a.get(i).getStringValue().equals("+0000")){
+            if(!(a.get(i).getStringValue().equals(String.format("%+0" + (numlength + 1) + "d", 0)))){
                 System.out.println(a.get(i).getStringValue());
                 return 99 - i;
             }

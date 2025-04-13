@@ -132,7 +132,7 @@ public class MachineFileGui {
         MController.setDelLineButton(ctdelline);
         ctdelline.setOnAction(event -> MController.onDeleteButtonClick());
         Button ctsubmit = new Button();
-        ctsubmit.setText("Submit");
+        ctsubmit.setText("Sync With Textbox View");
         ctsubmit.setOnAction(event -> MController.onCTSubmitButtonClick());
 
         //todo: assemble all above architecture
@@ -159,12 +159,13 @@ public class MachineFileGui {
         txtvbox.setSpacing(20.0);
         txtvbox.setPadding(new Insets(20.0, 20.0, 20.0, 20.0));
         TextArea descriptionArea = new TextArea("file in text view. Each line is a new MLcommand. When submit is clicked file will be sync and run with new commands. Only accepts first 250 lines.");
-        descriptionArea.setMaxHeight(40);
+        descriptionArea.setMaxHeight(50);
+        descriptionArea.setWrapText(true);
         descriptionArea.setEditable(false);
         TextArea fileInputArea = new TextArea();
 
         fileInputArea.setId("fileInputArea");
-        Button txtfilesubmitButton = new Button("submit");
+        Button txtfilesubmitButton = new Button("Sync With Command View");
         txtfilesubmitButton.setOnAction(event -> MController.onSubmitfileButtonclick());
         //todo: assemble all above archtecture
         txtvbox.getChildren().addAll(descriptionArea, fileInputArea, txtfilesubmitButton);

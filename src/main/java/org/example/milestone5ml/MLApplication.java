@@ -28,9 +28,6 @@ public class MLApplication extends Application {
 
         TabPane c = (TabPane)scene.lookup("#ctabframe");
 
-        MachineFileGui m = new MachineFileGui("new file");
-        c.getTabs().add(m.getTab());
-
         TextArea t = (TextArea)scene.lookup("#rm");
         try{
             File file = new File("README.md");
