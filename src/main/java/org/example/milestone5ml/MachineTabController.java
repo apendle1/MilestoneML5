@@ -116,6 +116,9 @@ public class MachineTabController {
             } else {
                 OutputArea.setText(message.toString());
             }
+            if(lines.size() > 250){
+                OutputArea.setText(OutputArea.getText() +"\nThe file is over 250 commands, Anything over 250 will be truncated");
+            }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
