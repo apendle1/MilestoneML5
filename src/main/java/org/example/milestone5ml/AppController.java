@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
@@ -46,8 +45,7 @@ public class AppController {
     HBox interior3;
     @FXML
     HBox interior;
-    @FXML
-    VBox interior2;
+
 
     @FXML
     protected void onSettingButtonClick() throws IOException {
@@ -55,7 +53,6 @@ public class AppController {
     }
 
     public void applyColor(Color color1, Color color2){
-        //interior2.setBackground(Background.fill(color2));
         interior3.setBackground(Background.fill(color2));
         interior.setBackground(Background.fill(color2));
         background1.setBackground(Background.fill(color1));
@@ -67,6 +64,7 @@ public class AppController {
 
         SettingsController settingsController = fxmlLoader.getController();
         settingsController.setMainController(this);
+
         Stage stage = new Stage();
         stage.setTitle("setting");
         stage.setScene(new Scene(root));

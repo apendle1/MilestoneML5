@@ -15,12 +15,12 @@
 
 
             <VBox fx:id="interior2" alignment="TOP_CENTER" spacing = "10.0" style="-fx-background-color: white">
-                <TextArea text="Choose color for application layout and submit" maxHeight="40" maxWidth="300"/>
-                <TextArea text="Primary color:" maxHeight="10" maxWidth="150" />
+                <TextArea text="Choose color for application layout and submit" maxHeight="40" maxWidth="300" editable="false"/>
+                <TextArea text="Primary color:" maxHeight="10" maxWidth="150" editable="false"/>
                 <ColorPicker fx:id="primaryColor">
 
                 </ColorPicker>
-                <TextArea text="Secondary color:" maxHeight="10" maxWidth="150"/>
+                <TextArea text="Secondary color:" maxHeight="10" maxWidth="150" editable="false"/>
                 <ColorPicker fx:id="secondaryColor">
 
                 </ColorPicker>
@@ -30,7 +30,7 @@
 
             </VBox>
 
-        
+
 
 
 </AnchorPane>
