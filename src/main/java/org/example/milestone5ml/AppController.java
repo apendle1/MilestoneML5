@@ -39,10 +39,7 @@ public class AppController {
         }
     }
 
-    @FXML
-    ColorPicker primaryColor;
-    @FXML
-    ColorPicker secondaryColor;
+
     @FXML
     VBox background1;
     @FXML
@@ -51,25 +48,20 @@ public class AppController {
     HBox interior;
     @FXML
     VBox interior2;
-    @FXML
-    protected void onSubmitColorButtonClick(){
-        Color color1 = primaryColor.getValue();
-        Color color2 = secondaryColor.getValue();
-        interior2.setBackground(Background.fill(color2));
-        interior3.setBackground(Background.fill(color2));
-        interior.setBackground(Background.fill(color2));
-        background1.setBackground(Background.fill(color1));
-    }
+
     @FXML
     protected void onSettingButtonClick() throws IOException {
         openSettingsWindow();
     }
     @FXML
     private void openSettingsWindow() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("setting.fxml"));
         Parent root = fxmlLoader.load();
+
+        SettingsController settingsController = fxmlLoader.getController();
+        settingsController.setMainController(this);
         Stage stage = new Stage();
-        stage.setTitle("settings");
+        stage.setTitle("setting");
         stage.setScene(new Scene(root));
         stage.show();
     }

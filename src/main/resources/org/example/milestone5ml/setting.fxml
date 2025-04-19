@@ -12,7 +12,7 @@
             fx:controller="org.example.milestone5ml.SettingsController"
             prefHeight="400.0" prefWidth="600.0">
 
-    >
+
         <HBox  alignment="TOP_CENTER">
 
             <padding>
