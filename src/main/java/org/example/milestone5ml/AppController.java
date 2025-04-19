@@ -53,6 +53,13 @@ public class AppController {
     protected void onSettingButtonClick() throws IOException {
         openSettingsWindow();
     }
+
+    public void applyColor(Color color1, Color color2){
+        //interior2.setBackground(Background.fill(color2));
+        interior3.setBackground(Background.fill(color2));
+        interior.setBackground(Background.fill(color2));
+        background1.setBackground(Background.fill(color1));
+    }
     @FXML
     private void openSettingsWindow() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("setting.fxml"));

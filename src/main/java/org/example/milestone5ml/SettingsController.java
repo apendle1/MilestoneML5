@@ -19,7 +19,10 @@ public class SettingsController {
     protected void onSubmitColorButtonClick(){
         Color color1 = primaryColor.getValue();
         Color color2 = secondaryColor.getValue();
-
+        mainController.applyColor(color1, color2);
     }
 
+    public AppController getMainController() {
+        return mainController;
+    }
 }
