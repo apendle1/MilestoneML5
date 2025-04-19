@@ -9,11 +9,14 @@ public class Machine {
     public int accumulator = 0;
     public int index;
     String returnValue;
+    public int digitmode;
+
 
     boolean awaitingRead;
 
     public Machine(){
         memory = new Memory();
+        digitmode = 1000;
     }
 
     //run
@@ -26,40 +29,40 @@ public class Machine {
         returnValue = "";
         while(!finished){
             int command = memory.getWordSingle(index);
-            int argument = command % 100;
-            if (command / 100 == 10) {//read
+            int argument = command % digitmode;
+            if (command / digitmode == 10) {//read
                 awaitingRead = true;
                 returnValue+="Enter a word (Max 4-digit number). Press Enter to continue:\n";
                 finished = true;
-            } else if (command / 100 == 11) {//write
+            } else if (command / digitmode == 11) {//write
                 returnValue += write(argument)+"\n";
-            } else if (command / 100 == 20) {//load
+            } else if (command / digitmode == 20) {//load
                 System.out.println(4444);
                 returnValue += load(argument)+"\n";
-            } else if (command / 100 == 21) {//store
+            } else if (command / digitmode == 21) {//store
                 returnValue += store(argument)+"\n";
-            } else if (command / 100 == 30) {//add
+            } else if (command / digitmode == 30) {//add
                 returnValue += add(argument)+"\n";
-            } else if (command / 100 == 31) {//subtract
+            } else if (command / digitmode == 31) {//subtract
                 returnValue += subtract(argument)+"\n";
-            } else if (command / 100 == 32) {//divide
+            } else if (command / digitmode == 32) {//divide
                 returnValue += divide(argument)+"\n";
-            } else if (command / 100 == 33) {//multiply
+            } else if (command / digitmode == 33) {//multiply
                 returnValue += multiply(argument)+"\n";
-            } else if (command / 100 == 40) {//branch
+            } else if (command / digitmode == 40) {//branch
                 index = branch(argument);
                 returnValue += "branched to index:"+index+"\n";
-            } else if (command / 100 == 41) {//branchneg
+            } else if (command / digitmode == 41) {//branchneg
                 if (branchneg(argument) > 0) {
                     index = branch(argument);
                     returnValue += "branched to index:"+index+"\n";
                 }
-            } else if (command / 100 == 42) {//branchzero
+            } else if (command / digitmode == 42) {//branchzero
                 if (branchzero(argument) > 0) {
                     index = branch(argument);
                     returnValue += "branched to index:"+index+"\n";
                 }
-            } else if (command / 100 == 43) {//halt
+            } else if (command / digitmode == 43) {//halt
                 returnValue += "Halted Successfully!\n";
                 finished = true;
             } else {
@@ -80,39 +83,39 @@ public class Machine {
             returnValue = "";
             while(!finished) {
                 int command = memory.getWordSingle(index);
-                int argument = command % 100;
-                if (command / 100 == 10) {//read
+                int argument = command % digitmode;
+                if (command / digitmode == 10) {//read
                     awaitingRead = true;
                     returnValue+= " Enter a word (Max 4-digit number). Press Enter to continue:\n";
                     finished = true;
-                } else if (command / 100 == 11) {//write
+                } else if (command / digitmode == 11) {//write
                     returnValue += write(argument)+"\n";
-                } else if (command / 100 == 20) {//load
+                } else if (command / digitmode == 20) {//load
                     returnValue += load(argument)+"\n";
-                } else if (command / 100 == 21) {//store
+                } else if (command / digitmode == 21) {//store
                     returnValue += store(argument)+"\n";
-                } else if (command / 100 == 30) {//add
+                } else if (command / digitmode == 30) {//add
                     returnValue += add(argument)+"\n";
-                } else if (command / 100 == 31) {//subtract
+                } else if (command / digitmode == 31) {//subtract
                     returnValue += subtract(argument)+"\n";
-                } else if (command / 100 == 32) {//divide
+                } else if (command / digitmode == 32) {//divide
                     returnValue += divide(argument)+"\n";
-                } else if (command / 100 == 33) {//multiply
+                } else if (command / digitmode == 33) {//multiply
                     returnValue += multiply(argument)+"\n";
-                } else if (command / 100 == 40) {//branch
+                } else if (command / digitmode == 40) {//branch
                     index = branch(argument);
                     returnValue += "branched to index:"+index+"\n";
-                } else if (command / 100 == 41) {//branchneg
+                } else if (command / digitmode == 41) {//branchneg
                     if (branchneg(argument) > 0) {
                         index = branch(argument);
                         returnValue+= "branched to index:"+index+"\n";
                     }
-                } else if (command / 100 == 42) {//branchzero
+                } else if (command / digitmode == 42) {//branchzero
                     if (branchzero(argument) > 0) {
                         index = branch(argument);
                         returnValue += "branched to index:"+index+"\n";
                     }
-                } else if (command / 100 == 43) {//halt
+                } else if (command / digitmode == 43) {//halt
                     returnValue += "Halted Successfully!\n";
                     finished = true;
                 } else {
@@ -136,7 +139,7 @@ public class Machine {
 
     //read
     public void read(int word){
-        memory.setWordSingle(memory.getWordSingle(index - 1) % 100,word);
+        memory.setWordSingle(memory.getWordSingle(index - 1) % digitmode,word);
     }
 
     //write
@@ -240,7 +243,7 @@ public class Machine {
 
     //branch
     public int branch(int i){
-        return (i % 100) - 1;
+        return (i % digitmode) - 1;
     }
 
     //branchneg

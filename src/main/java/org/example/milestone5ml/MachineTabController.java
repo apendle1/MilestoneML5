@@ -189,6 +189,9 @@ public class MachineTabController {
             }
         }
         m = new Machine();
+        if(numlength == 4){
+            m.digitmode = 100;
+        }
         try{
             MemGuiToMachine();
             returnString = m.run();
