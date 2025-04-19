@@ -21,14 +21,15 @@
     <HBox spacing="20.0" fx:id="interior">
         <Button text="New File" onAction="#onNewFileButtonClick"/>
         <Button text="Open File" onAction="#onOpenFileButtonClick"/>
+        <Button text="Settings" onAction ="#onSettingButtonClick"/>
     </HBox>
     <TabPane fx:id="ctabframe">
-        <Tab text="ReadMe" closable="false">
+        <Tab text="ReadMe">
             <HBox fx:id="interior3" alignment="TOP_CENTER">
                 <TextArea wrapText="true" editable="false" fx:id="rm" prefWidth="600" />
             </HBox>
         </Tab>
-        <Tab text="Settings" closable="false">
+        <Tab text="Settings">
             <HBox alignment="TOP_CENTER">
 
                 <padding>
