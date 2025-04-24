@@ -1,36 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.milestone5ml.SettingsController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<?import javafx.scene.text.Text?>
+<VBox fx:id="interior2" alignment="CENTER" spacing = "10.0" style="-fx-background-color: white"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.milestone5ml.SettingsController"
+      prefHeight="400.0" prefWidth="600.0">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <Text text="Choose color for application layout and submit"/>
+    <Text text="Primary color:"/>
+    <ColorPicker fx:id="primaryColor"/>
 
+    <Text text="Secondary color:"/>
+    <ColorPicker fx:id="secondaryColor"/>
 
-            <VBox fx:id="interior2" alignment="TOP_CENTER" spacing = "10.0" style="-fx-background-color: white">
-                <TextArea text="Choose color for application layout and submit" maxHeight="40" maxWidth="300" editable="false"/>
-                <TextArea text="Primary color:" maxHeight="10" maxWidth="150" editable="false"/>
-                <ColorPicker fx:id="primaryColor">
+    <HBox>
+        <Button text="Submit" onAction="#onSubmitColorButtonClick"/>
+    </HBox>
 
-                </ColorPicker>
-                <TextArea text="Secondary color:" maxHeight="10" maxWidth="150" editable="false"/>
-                <ColorPicker fx:id="secondaryColor">
-
-                </ColorPicker>
-                <HBox>
-                    <Button text ="submit" onAction="#onSubmitColorButtonClick"/>
-                </HBox>
-
-            </VBox>
-
-
-
-
-</AnchorPane>
+</VBox>

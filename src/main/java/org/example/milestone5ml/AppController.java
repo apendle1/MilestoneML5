@@ -2,7 +2,6 @@ package org.example.milestone5ml;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.Background;
@@ -42,8 +41,6 @@ public class AppController {
     @FXML
     VBox background1;
     @FXML
-    HBox interior3;
-    @FXML
     HBox interior;
 
 
@@ -53,21 +50,21 @@ public class AppController {
     }
 
     public void applyColor(Color color1, Color color2){
-        interior3.setBackground(Background.fill(color2));
         interior.setBackground(Background.fill(color2));
         background1.setBackground(Background.fill(color1));
     }
     @FXML
     private void openSettingsWindow() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("setting.fxml"));
-        Parent root = fxmlLoader.load();
+        //Parent root = fxmlLoader.load();
+        Scene scene = new Scene(fxmlLoader.load(),400, 250);
 
         SettingsController settingsController = fxmlLoader.getController();
         settingsController.setMainController(this);
 
         Stage stage = new Stage();
-        stage.setTitle("setting");
-        stage.setScene(new Scene(root));
+        stage.setTitle("Settings");
+        stage.setScene(scene);
         stage.show();
     }
 }

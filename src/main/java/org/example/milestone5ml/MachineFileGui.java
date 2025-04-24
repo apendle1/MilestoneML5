@@ -92,7 +92,7 @@ public class MachineFileGui {
         MController.setComRunList(rtcommandtext);
         Label accidxlabel = new Label();
         MController.setACCIDXLabel(accidxlabel);
-        accidxlabel.setText("ACC: 0000    IDX: 0000");
+        accidxlabel.setText("ACC: 000000    IDX: 0000");
         Button savebutton = new Button();
         savebutton.setText("Save");
         MController.setSaveButton(savebutton);

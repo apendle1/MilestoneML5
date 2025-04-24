@@ -108,6 +108,9 @@ public class MachineTabController {
             }
 
             for (int i = 0; i < lines.size() && i < 250; i++) {
+                if(numlength == 4){
+                    a.get(i).ivalue = 100;
+                }
                 a.get(i).setValue(lines.get(i));
             }
 

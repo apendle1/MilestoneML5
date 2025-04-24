@@ -23,6 +23,7 @@ public class WordGui {
     TextField wordField; //textfield that holds the word
     Label interp; //rightmost label holding interpretation
     CheckBox cbox;
+    int ivalue;
 
     @FXML
     TextArea fileInputArea;
@@ -63,6 +64,7 @@ public class WordGui {
 
 
     public WordGui(int i){
+        ivalue = 1000;
         id = i;
         hbox = new HBox();
         hbox.setAlignment(CENTER_LEFT);
@@ -179,11 +181,11 @@ public class WordGui {
         return wordField;
     }
 
-    public static String intToString(int word){
+    public String intToString(int word){
         if(word == 0){
             return "EMPTY";
         }
-        int command = word / 100;
+        int command = word / ivalue;
         switch (command){
             case 10://read
                 return "Read word from screen in to a location in memory.\n";

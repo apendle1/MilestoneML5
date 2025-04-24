@@ -32,7 +32,7 @@ public class Machine {
             int argument = command % digitmode;
             if (command / digitmode == 10) {//read
                 awaitingRead = true;
-                returnValue+="Enter a word (Max 4-digit number). Press Enter to continue:\n";
+                returnValue+="Enter a word. Press Enter to continue:\n";
                 finished = true;
             } else if (command / digitmode == 11) {//write
                 returnValue += write(argument)+"\n";
@@ -86,7 +86,7 @@ public class Machine {
                 int argument = command % digitmode;
                 if (command / digitmode == 10) {//read
                     awaitingRead = true;
-                    returnValue+= " Enter a word (Max 4-digit number). Press Enter to continue:\n";
+                    returnValue+= " Enter a word. Press Enter to continue:\n";
                     finished = true;
                 } else if (command / digitmode == 11) {//write
                     returnValue += write(argument)+"\n";
